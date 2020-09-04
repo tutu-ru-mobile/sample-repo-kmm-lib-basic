@@ -1,6 +1,6 @@
 import SwiftUI
 import Foundation
-import app_di
+import ios_kotlin_pod
 
 public func hexColorToSwiftUI(color: Lib_basicHexColor) -> Color {
     Color(UIColor(
