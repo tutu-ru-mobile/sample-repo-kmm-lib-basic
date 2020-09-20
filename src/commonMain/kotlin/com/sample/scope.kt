@@ -14,6 +14,3 @@ fun launchAppScope(block: suspend () -> Unit) {
 }
 
 expect val APP_SCOPE:CoroutineScope
-
-//TODO redundant
-expect fun launchCoroutineSingleThread(block: suspend () -> Unit)
