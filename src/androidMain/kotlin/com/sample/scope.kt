@@ -2,4 +2,4 @@ package com.sample
 
 import kotlinx.coroutines.*
 
-actual inline fun getAppScope():CoroutineScope = MainScope()
+actual internal inline fun getAppScope():CoroutineScope = MainScope()

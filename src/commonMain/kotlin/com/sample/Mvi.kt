@@ -27,7 +27,7 @@ fun <S, A> createStore(init: S, reducer: Reducer<S, A>): Store<S, A> {
         init {
             //https://m.habr.com/ru/company/kaspersky/blog/513364/
             //or alternative in jvm use fun CoroutineScope.actor(...)
-            getAppScope().launch {
+            APP_SCOPE.launch {
                 channel.consumeAsFlow().collect { action ->
                     mutableStateFlow.value = reducer(mutableStateFlow.value, action)
                 }
