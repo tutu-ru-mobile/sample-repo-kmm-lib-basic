@@ -7,10 +7,12 @@ import kotlinx.coroutines.launch
  * Для простоты примера я минимально использую корутины и эта функиця запускает корутины самым простым способом
  * В настоящем коде следует использовать CoroutineScope и Job-ы
  */
+//private val _appScope by lazy {getAppScope()}//todo
+
 fun launchAppScope(block: suspend () -> Unit) {
-    APP_SCOPE.launch {
+    getAppScope().launch {
         block()
     }
 }
 
-expect val APP_SCOPE:CoroutineScope
+expect inline fun getAppScope():CoroutineScope
