@@ -24,7 +24,7 @@ kotlin {
         }
         val jsMain by getting {
             dependencies {
-
+                apiReact()
             }
         }
         val androidMain by getting {
