@@ -1,7 +1,6 @@
 package com.sample
 
-import kotlinx.css.fontSize
-import kotlinx.css.pt
+import kotlinx.css.*
 import kotlinx.html.js.onClickFunction
 import react.RBuilder
 import react.dom.button
@@ -18,6 +17,10 @@ fun RBuilder.btn(label: String, onClick: () -> Unit) {
         styledDiv {
             css {
                 fontSize = 20.pt
+                if (false) {
+                    color = Color.darkGreen
+                    fontWeight = FontWeight.bold
+                }
             }
             +label
         }
