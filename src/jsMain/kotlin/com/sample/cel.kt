@@ -1,9 +1,7 @@
 package com.sample
 
-import kotlinx.css.Color
-import kotlinx.css.backgroundColor
-import kotlinx.css.padding
-import kotlinx.css.px
+import kotlinx.css.*
+import kotlinx.css.properties.border
 import kotlinx.html.DIV
 import react.RBuilder
 import styled.StyledDOMBuilder
@@ -14,8 +12,13 @@ fun RBuilder.cel(block: StyledDOMBuilder<DIV>.() -> Unit) {
     styledDiv {
         css {
             padding(all = 10.px)
-            backgroundColor = Color.lightGray
         }
-        block()
+        styledDiv {
+            css {
+                backgroundColor = Color.lightGray
+                border(LinearDimension.borderBox, BorderStyle.solid, Color.black)
+            }
+            block()
+        }
     }
 }
