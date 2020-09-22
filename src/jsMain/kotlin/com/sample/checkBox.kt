@@ -1,19 +1,14 @@
 package com.sample
 
-import kotlinx.css.FontWeight
-import kotlinx.css.fontSize
-import kotlinx.css.fontWeight
-import kotlinx.css.pt
 import kotlinx.html.DIV
 import kotlinx.html.InputType
 import kotlinx.html.js.onChangeFunction
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLSelectElement
+import react.RBuilder
 import react.dom.*
-import styled.css
-import styled.styledDiv
 
-fun RDOMBuilder<DIV>.checkBox(
+fun RBuilder.checkBox(
     label: String,
     value: Boolean,
     onClick: () -> Unit
