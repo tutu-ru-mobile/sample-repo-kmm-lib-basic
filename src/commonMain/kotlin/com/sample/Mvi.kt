@@ -17,7 +17,6 @@ interface Store<S, A> {
 
 /**
  * Самая простая реализация MVI архитектуры для слоя представления.
- * В реальном проекте также нужно добавить обработку SideEffect-ов
  */
 fun <S, A> createStore(init: S, reducer: Reducer<S, A>): Store<S, A> {
     val mutableStateFlow = MutableStateFlow(init)
@@ -40,4 +39,29 @@ fun <S, A> createStore(init: S, reducer: Reducer<S, A>): Store<S, A> {
 
         override val stateFlow: StateFlow<S> = mutableStateFlow
     }
+}
+
+typealias ReducerSE<S, A, SE> = (S, A) -> ReducerResult<S, SE>
+
+class ReducerResult<S, SE>(val state: S, val sideEffects: List<SE> = emptyList())
+
+/**
+ * MVI по типу ELM с обработкой SideEffect-ов
+ */
+fun <S, A, SE> createStoreWithSideEffect(
+    init: S,
+    effectHandler: (store: Store<S, A>, sideEffect: SE) -> Unit,
+    reducer: ReducerSE<S, A, SE>
+): Store<S, A> {
+    lateinit var store: Store<S, A>
+    store = createStore(init) { state, action ->
+        val result = reducer(state, action)
+
+        result.sideEffects.forEach {
+            effectHandler(store, it)
+        }
+
+        result.state
+    }
+    return store
 }

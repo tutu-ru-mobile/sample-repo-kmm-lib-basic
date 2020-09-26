@@ -35,6 +35,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 api(project(":lib-idea-adapter"))
+                api(project(":lib-telegram-adapter"))
             }
         }
     }
