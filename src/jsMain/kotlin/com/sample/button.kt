@@ -16,7 +16,7 @@ fun RBuilder.btn(label: String, onClick: () -> Unit) {
         }
         styledDiv {
             css {
-                fontSize = 20.pt
+                fontSize = 14.pt
                 if (false) {
                     color = Color.darkGreen
                     fontWeight = FontWeight.bold
