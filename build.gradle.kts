@@ -36,6 +36,7 @@ kotlin {
             dependencies {
                 api(project(":lib-idea-adapter"))
                 api(project(":lib-telegram-adapter"))
+                api(project(":lib-console-adapter"))
             }
         }
     }
